@@ -1,0 +1,11 @@
+# TODO
+x Bring in posts
+- Bring in post indices
+- Render the posts
+- Bring in images
+ - thinking about just dumping them in the posts folder
+- Testing?
+- Bring over other content
+- Bring over presentations
+- Render presentations properly
+  - Impress.js exporter?

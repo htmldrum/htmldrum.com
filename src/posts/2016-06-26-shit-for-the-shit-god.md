@@ -1,0 +1,52 @@
+---
+layout: post
+title: Shit For The Shit God
+summary: IT spending in Australia has a tragic history of failing to deliver outcomes for those who pay for it. The Turnbull government has just announced the next script for the next failure.
+categories: it australia spending
+---
+What's the best way to rebuild a [crumbling public service infrastructure](http://www.bloomberg.com/news/articles/2016-06-26/australian-election-2016-what-you-need-to-know), [mired in red tape](http://www.smh.com.au/national/public-service/this-man-beat-centrelinks-system-and-he-says-you-can-too-20160127-gmet74.html), that many see as [corrupt](http://www.abc.net.au/news/2016-06-28/us-air-force-border-force-members-allegedly-in-syndicates/7548126), [inconsiderate](http://www.smh.com.au/nsw/sydney-siege-inquest-katrina-dawson-sustained-at-least-seven-gunshot-wounds-20160627-gpt7qs.html) and [dangerous](http://www.abc.net.au/news/2016-06-06/vision-released-police-officer-pulls-gun-on-motorist-outback-qld/7482950) that provides benefits for [foreign owned companies](http://www.abc.net.au/news/2012-01-18/11pc-of-farm-land-foreign-owned/3781324) but [less so for "Australians"](http://www.smh.com.au/business/the-economy/australian-wages-growth-hits-the-wall-20141205-12165v.html).
+
+[Throw a whole bunch of money at it!](http://www.smh.com.au/it-pro/government-it/malcolm-turnbull-promises-50-million-reboot-for-troubled-mygov-20160621-gpnwcz.html)
+
+![Australian IT: A Retrospective]({{ site.url }}/media/images/koala2.gif)
+
+
+From the team that brought your [the most expensive IT disaster of all time](http://www.news.com.au/technology/online/new-slower-national-broadband-network-to-cost-30-billion-more-than-labors-previous-plan/story-fnjwncel-1226781570899) is the team that thinks they can utilise scarce public resources **BETTER**!
+
+> The Coalition says it will spend $50 million in an effort to sort out the government's much maligned myGov web portal if it wins the election.
+> 
+> The Prime Minister has also confirmed that his pet project the Digital Transformation Office will be taking the lead in trying to reinvent the service, as revealed by Fairfax in January.
+> 
+> Malcolm Turnbull said the DTO would 'partner' with other departments who used the gateway, like the ATO, Centrelink and Medicare in an effort to improve the user experience of myGov.
+
+The problem with viewing 'technology' as 'creation' is that you conflate progress for alternative side effects. As systems increase in complexity, few options are prima facae "the right choices to make". You frequently just find yourself choosing between approaches with equally disaterous side-effects.  Alan Kay is always talking of "new" and "news" - this is an example of neither.
+
+In the latest attempt to appear rational, reasoned or organized, the government has turned to the market's latest fad: developers. Even [Macquarie Bank](http://stackoverflow.com/jobs/118434/full-stack-developer-contract-macquarie) can read the code on the wall: consumers want sophisticated services that intelligently cater to their unique needs. Asymmetric information just isn't as profitable as it was when they drove the developed world off the cliff in 2008. 
+
+Enter the developer, a product of a socialized, racially-integrated, free-trading first world. Equipped with the knowledge of their parents, their effectiveness is limited to the breadth and depth of their experience in relevant software practises. A bet on any one of them is a bet on 6 competing technologies hedged across global chains of communication facilitated by the web.
+
+As the world goes, so goes Canberra. Whilst the DTO may be Malcolm's personal Genius bar, other Liberal party dignatories have been silently shopping deals around 'start ups' in Sydney and Melbourne; looking to pin their dying relevance to another investment banker walking in the shadow of another shallow marketing graduate. And hasn't it been [fun to watch](http://www.smh.com.au/entertainment/tv-and-radio/wyatt-roy-grilled-on-startup-funding-on-qa-the-money-doesnt-match-the-words-mate-20160329-gnsna2.html)!
+
+The locus of these political messages is that *Innovation* is *Convenience*. Innovation will bring faster, and cheaper and ... you know. Stuff. Right? Prodding the marketing material produces no details. These politicians are trying to position themselves as service providers to facilitating businesses and interactions. In reality, they stand opposed to them. This 'digitising' of the public service is solely an attempt at [further cost reductions](http://www.abc.net.au/news/2014-01-14/government-flags-merger-of-social-and-human-services-departments/5198928) which will continue to produce [worse outcomes for consumers](http://www.abc.net.au/news/2012-10-19/violence-against-centrelink-staff/4322346). Even if you assume that the DTO is filled with the right brains to be able to pull this off, they will only be instrumenting the system that exists today.
+
+After having seen the *INCREDIBLE* amount of money paid to [Thoughtworks](http://thoughtworks.com) by the Australian Government for consultancy and having worked with people who performed the ['work'](http://www.news.com.au/technology/the-coalitions-internet-policy-has-been-slammed-as-a-colossal-mistake/news-story/d3cf2b9e65d5ee0b7d442e76d3afbc7b) I've been able to solidfy an understanding of the operation of Canberra with respect to the exclusive provision of telecommunications infrastructure on the continent of Australia: fucking embarassing. It's robbery and fraud like any other. Martin Fowler doesn't need any more gold back scratchers.
+
+If the government was interested in real outcomes for Australians it would do more to intefer with the free operation of markets for computer hardware. I've lost so much time to this 3rd-hand USD$80 Thinkpad from 2008.
+
+I can't wait to hear the DTO's proposals. They already have roadmaps to escape blame for failing to deliver outcomes! The government of Australia, in providing web services to the citizens of Australia may choose 2 of the following 3 outcomes:
+
+- To deliver services on budget
+- To deliver services on time
+- To deliver services fit for use 
+
+It's already decided which 2 it wishes to implement. Further, I bet they're mostly about guarding access to secure resources. I really can't wait to hear how a bunch of new web sites are going to fix the broken public service: [Bootstrap 4](http://getbootstrap.com/) is coming out soon.
+
+Instead of writing down references to bullshit jobs, you can use twitter to make them up!
+Instead of giving centrelink a fake address so you can still receive payments, they can use GeoDNS to know you're lying about being able to afford rent!
+Instead of taking responsibility for the equitable operation of the economy, we can continue to punt the decision to the next generation behind a stream of dollars.
+
+This DTO shit is the latest in a long line of suggestions the government has to avoid dealing with the problems of discriminated service provision in the public sector. It won't help with [Clover Moore's water addiction](http://www.dailytelegraph.com.au/news/nsw/clover-moore-pours-80000-into-a-popup-h2o-water-bar-open-for-just-nine-days/news-story/76944d7fde2b0ab98139d149f040590f) or [Mike Baird illegally demolishing Sydney communities](http://www.afr.com/business/transport/nsw-premier-mike-baird-vows-to-push-westconnex-through-20160615-gpje7j) or [those failed by decades of short-sighted residential planning](http://www.abc.net.au/news/2015-07-28/portraits-of-sydneys-homeless-community/6653186).
+
+If you want a vision for the new Centrelink, look no further.
+
+{% youtube cn7IjjWn2qo 400 300 %}

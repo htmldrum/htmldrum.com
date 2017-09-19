@@ -1,0 +1,39 @@
+{
+    "name": "gatsby-starter-default",
+    "description": "Gatsby default starter",
+    "version": "1.0.0",
+    "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+    "dependencies": {
+        "gatsby": "^1.9.36",
+        "gatsby-link": "^1.6.16",
+        "gatsby-plugin-glamor": "^1.6.7",
+        "gatsby-plugin-google-analytics": "^1.0.7",
+        "gatsby-plugin-offline": "^1.0.9",
+        "gatsby-plugin-react-helmet": "^1.0.5",
+        "gatsby-plugin-sass": "^1.0.12",
+        "gatsby-plugin-typography": "^1.7.9",
+        "gatsby-source-filesystem": "^1.4.12",
+        "gatsby-transformer-json": "^1.0.6",
+        "gatsby-transformer-remark": "^1.7.7",
+        "glamorous": "^4.9.1",
+        "react-typography": "^0.16.5",
+        "showdown": "^1.7.4",
+        "tachyons": "^4.8.1",
+        "typography": "^0.16.6",
+        "typography-theme-kirkham": "^0.16.3"
+    },
+    "keywords": [
+        "gatsby"
+    ],
+    "license": "MIT",
+    "main": "n/a",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "prettier": "^1.6.1"
+    }
+}
