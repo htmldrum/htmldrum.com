@@ -1,9 +1,11 @@
 require("tachyons");
+require('prismjs/themes/prism-solarizedlight.css')
 import './index.css';
 
 import React from "react"
 import Link from "gatsby-link"
 import Navigation from "../components/navigation.js";
+
 
 export default ({ children, data }) =>
   <div>
