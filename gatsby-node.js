@@ -4,7 +4,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    const slug = ("/blog" + createFilePath({ node, getNode, basePath: `posts` })).slice(0, -1);
     const dateMatch = node.id.match(/[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}/)
     if(dateMatch == null) {
       throw Error(`Unable to find a jekyll-compliant date in ${node.id}`)
@@ -49,8 +49,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 edges {
                   node {
                     fields {
-                      slug,
-                      date
+                      slug
                     }
                   }
                 }
@@ -58,15 +57,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             }
             `).then(result => {
               result.data.allMarkdownRemark.edges.map(({ node }) => {
-                console.log("SLUG: ", node.fields.slug);
                 createPage({
-                  path: node.fields.slug,
+                  path: (node.fields.slug),
                   component: path.resolve(`./src/templates/post.js`),
                   context: {
                     // Data passed to context is available in page queries as GraphQL variables.
-                    slug: node.fields.slug,
-                    date: node.fields.date
-                  },
+                    slug: node.fields.slug
+                  }
                 })
               })
               resolve()
