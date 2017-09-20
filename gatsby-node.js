@@ -4,12 +4,15 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages/posts` })
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
     const dateMatch = node.id.match(/[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}/)
     if(dateMatch == null) {
-      throw Error(`Unable to find a jekyll-compliant date in ${node.id}`);
+      throw Error(`Unable to find a jekyll-compliant date in ${node.id}`)
     }
-    const date = new Date(dateMatch[0]);
+    const date = new Date(dateMatch[0])
+
+    // TODO parse the following
+    // description
     createNodeField({
       node,
       name: `slug`,
@@ -34,7 +37,6 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         value: node.frontmatter.categories.split(' ')
       })
     }
-
   }
 }
 
@@ -48,8 +50,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   node {
                     fields {
                       slug,
-                      date,
-                      categories
+                      date
                     }
                   }
                 }
@@ -57,14 +58,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             }
             `).then(result => {
               result.data.allMarkdownRemark.edges.map(({ node }) => {
+                console.log("SLUG: ", node.fields.slug);
                 createPage({
                   path: node.fields.slug,
                   component: path.resolve(`./src/templates/post.js`),
                   context: {
                     // Data passed to context is available in page queries as GraphQL variables.
                     slug: node.fields.slug,
-                    date: node.fields.date,
-                    categories: node.fields.categories,
+                    date: node.fields.date
                   },
                 })
               })

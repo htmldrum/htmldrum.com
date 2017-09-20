@@ -3,6 +3,15 @@ import React from "react"
 export default ({ data }) => {
   const post = data.markdownRemark
   return (
+      <b>{ post.fields.slug }</b>
+  )
+}
+
+/*
+
+export default ({ data }) => {
+  const post = data.markdownRemark
+  return (
       <div>
       <h1>
       {post.frontmatter.title}
@@ -11,6 +20,7 @@ export default ({ data }) => {
       </div>
   )
 }
+*/
 
 export const query = graphql`
 query BlogPostQuery($slug: String!) {
@@ -18,6 +28,9 @@ query BlogPostQuery($slug: String!) {
     html
     frontmatter {
       title
+    }
+    fields {
+      slug
     }
   }
 }`

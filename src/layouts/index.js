@@ -8,8 +8,8 @@ import Navigation from "../components/navigation.js";
 export default ({ children, data }) =>
   <div>
     <div className="flex flex-column min-vh-100-ns flex-row-ns">
-    <Navigation />
-    {children()}
+      <Navigation />
+      {children()}
     </div>
   </div>
 

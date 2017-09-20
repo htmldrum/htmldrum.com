@@ -1,15 +1,6 @@
 import React from "react"
 
-export const query = graphql`
-  query AboutQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }`
-
-export default ({ data }) =>
+export default () =>
   <section className="container avenir flex flex-auto flex-column flex-row-ns justify-center">
     <div className="fl w-25 pa2"></div>
     <div className="fl tc w-50-ns pa2 justify-center">

@@ -1,11 +1,33 @@
 import React from 'react'
-import Link from "gatsby-link"
+import NavigationLink from "./navigation_link"
 import './navigation.css';
 
-export default ({ children }) =>
-  <nav className="avenir w-20-ns pa3 pa4-ns">
-    <Link className="link dim f6 f2-ns dib mr3 pt2-ns pl2-ns pr2-ns w-100-ns" to="/">Home</Link>
-    <Link className="link dim f6 f2-ns dib mr3 pt2-ns pl2-ns pr2-ns w-100-ns" to="/blog">Blog</Link>
-    <Link className="link dim f6 f2-ns dib mr3 pt2-ns pl2-ns pr2-ns w-100-ns" to="/open_source">Open Source</Link>
-    <Link className="link dim f6 f2-ns dib mr3 pt2-ns pl2-ns pr2-ns w-100-ns" to="/talks">Talks</Link>
-  </nav>
+class Navigation extends React.Component {
+  render() {
+    const sections = [
+      {
+        path: "/",
+        title: "Home"
+      },
+      {
+        path: "/blog",
+        title: "Blog"
+      },
+      {
+        path: "/open_source",
+        title: "Open Source"
+      },
+      {
+        path: "/talks",
+        title: "Talks"
+      }
+    ];
+    return(
+      <nav className="avenir w-20-ns pa3 pa4-ns">
+        { sections.map(s => <NavigationLink section={s} />) }
+      </nav>
+    )
+  }
+}
+
+export default Navigation

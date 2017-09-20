@@ -1,11 +1,25 @@
-# TODO
+# DONE
+
 x Bring in posts
-- Bring in post indices
+x Bring in post indices
+x Style
+x Bring in images
+ x thinking about just dumping them in the posts folder
+x Bring over other content
+x Bring over presentations
+x Render presentations properly
+  x Impress.js exporter?
+
+# TODO
 - Render the posts
-- Bring in images
- - thinking about just dumping them in the posts folder
+  x Render the list element
+  - Render the post body
+  - Render the code segments nicely
+- Add images
+- Add social networking
+- Host on AWS
+- Update resume
+- CloudFront cacheing
 - Testing?
-- Bring over other content
-- Bring over presentations
-- Render presentations properly
-  - Impress.js exporter?
+- Work on open source projects
+  - Try some PR's on other people's projects
