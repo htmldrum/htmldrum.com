@@ -7,7 +7,8 @@ summary: In 56 minutes I'll be starting Ludum Dare 48
 ---
 I've been working with an AS3 3D lib called Away 3D. It's promising to optimize the FP11 Molehill API's as soon as they're released so I'm using them in some simple animations. That said, there's lots of issues. For example, it's impossible to skin cube primitives by side. To get around this I've implemented the following code which will let you do this by utilising plane objects.
 
-{% highlight actionscript %}package com.jrm.ld
+```actionscript
+package com.jrm.ld
 {
      import away3d.containers.ObjectContainer3D;
      import away3d.containers.View3D;
@@ -122,4 +123,4 @@ I've been working with an AS3 3D lib called Away 3D. It's promising to optimize 
           }
      }
 }  
-{% endhighlight %}
+```

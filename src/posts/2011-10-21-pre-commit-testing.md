@@ -8,37 +8,38 @@ A pre-commit check is invoked right before a change is committed into the reposi
 
 For Git, the pre-commit script is a single file located under the hidden subdirectory .git. Creating a new one is as easy as:
 
-{% highlight bash %}
+```bash
 touch .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
-{% endhighlight %}
+```
 
 from the top-level working directory of your repository. When the script is executed (right before a commit), the exit code will be inspected. If it is zero, the commit will continue. If it is non-zero, the commit is blocked and the working directory is left in the “dirty” state (you can inspect it with git diff).
 
 Here is a simple pre-commit script (Unix only, sorry!) which prevents you to commit something on Sunday.
 
-{% highlight bash %}if [ `date +%w` -eq 6 || `date +%w` -eq 7 ]; then
+```bash
+if [ `date +%w` -eq 6 || `date +%w` -eq 7 ]; then
   echo "No commits on the weekend."
   exit 1
 fi
 exit 0
-{% endhighlight %}
+```
 
 Many software projects drive the test via make test. Provided that the exit code is suitably set, the pre-commit script needs only that line:
 
-{% highlight bash %}make test{% endhighlight %}
+`make test`
 
 For Node.js applications which use npm test to run the unit-test, making a pre-commit script is never been easier. The content of the script is as simple as:
 
-{% highlight bash %}npm test{% endhighlight %}
+`npm test`
 
 Even style checking (which is usually very fast) can be carried out easily. For JavaScript-based apps, JSLint or JSHint fits perfectly in this situation.
 
-{% highlight bash %}jslint app.js && jslint test/test.js{% endhighlight %}
+`jslint app.js && jslint test/test.js`
 
 If your script needs to be more sophisticated and handles all the files being added, copied, or modified, you can take advantage of Git filtering feature:
 
-{% highlight bash %}git diff --cached --name-status --diff-filter=ACM{% endhighlight %}
+`git diff --cached --name-status --diff-filter=ACM`
 
 By some piping machinery, or even just through xargs magic, the list of the files can be fed and processed appropriately. In most cases, especially large projects, checking only the files affected by the commit will save a lot of time.
 

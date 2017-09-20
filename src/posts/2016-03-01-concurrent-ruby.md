@@ -1,3 +1,8 @@
+---
+title: Concurrent Ruby
+categories: ruby concurrency
+summary: Concurrent Ruby is quickly standardizing as the authoritative tool kit for performing
+---
 Concurrent Ruby
 ======
 

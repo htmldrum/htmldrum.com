@@ -14,7 +14,7 @@ ApplicationController
 ---------------------
 In the application controller I largely only place gem directives. The application controller represents the behaviour above `ActionController::Base` that is not specific to the API behaviour of the application.
 
-{% highlight ruby %}
+```ruby
 # app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
   before_filter :update_sanitized_params, if: :devise_controller?
@@ -33,14 +33,13 @@ class ApplicationController < ActionController::Base
     users_path
   end
 end
-{% endhighlight %}
+```
 
 APIController
 -------------
 The API controller represents the behaviour that is specific to the API behaviour of a specific application. However, as API's are *versioned* we need to correctly namespace each APIController for each API version.
 
-{% highlight ruby %}
-#app/controllers/api/v1/api_controller.rb*
+```ruby
 module Api
   module V1
     class ApiController < ApplicationController
@@ -104,13 +103,13 @@ module Api
     end
   end
 end
-{% endhighlight %}
+```
 
 In this example I've attempted to use as much of the generic elements of Rails as possible to limit the code footprint. Each child of APIController is assumed to be a resource (`rails g resource Foo`). As such, will be given default CRUD behaviour. Business logic can overwrite specific methods in subclasses. I've taken the generic programming facilities further to parameterize update_params and create_params that are passed to the controllers. In update_params I make assumptions about the structure of the model (it will have a UUID and timestamps). APIController also features concerns (`BaseController`, `QueryableController`).
 
 BaseController
 ---------------------
-{% highlight ruby %}
+```ruby
 # app/controllers/concerns/base_controller.rb
 
 module BaseController
@@ -414,14 +413,14 @@ module BaseController
     end
   end
 end
-{% endhighlight %}
+```
 
 BaseController contains generic API behaviours that are to be implemented by any API issued by the dev team: centralizing API bugs and features. These are not implemented directly in APIController as APIController is allowed to vary between versions whereas the features of the BaseController concern are assumed to be long lasting. There's still some cruft in this controller that should be moved to the QueryableController concern.
 
 QueryableController
 --------------------
 
-{% highlight ruby %}
+```ruby
 #app/controllers/concerns/queryable_controller.rb*
 module QueryableController
   extend ActiveSupport::Concern
@@ -451,12 +450,11 @@ module QueryableController
   end
 
 end
-{% endhighlight %}
+```
 
 `QueryableController` largely contains methods for handling Elasticsearch queries.
 
-
-{% highlight ruby %}
+```ruby
 #app/controllers/api/v1/wines_controller.rb*
 module Api
   module V1
@@ -555,13 +553,13 @@ module Api
     end
   end
 end
-{% endhighlight %}
+```
 
 At last we arrive at a model's controller. By this point we've piled on the parent methods and only need to implment route-specific behaviours and template rendering. Each of the crud methods implicitly source templates according to standard rails rules. These controllers are expected to vary by API version and are free to implement their concerns and gems.
 
 AutocompleteController
 ---------------------
-{% highlight ruby %}
+```ruby
 #app/controllers/concerns/autocomplete_controller.rb*
 module AutocompleteController
   extend ActiveSupport::Concern
@@ -606,8 +604,10 @@ module AutocompleteController
     end
   end
 end
-{% endhighlight %}
+```
 
 This concern largely implements autocomplete behaviour via Elasticsearch.
 
 **Update 6/26/2016:** Added syntax highlighting. These are legacy patterns left here for reference. We thought this was really awesome back in the day.
+
+**Update 9/20/2017:** Updated syntax. I've also largely moved this project to its own Gem:  [GenericController](https://rubygems.org/gems/generic_controller). Keeping this post to show some novel approaches to metaprogramming afforded by Ruby. Considered updating this post with some changes I've made to recent RSpec tests but they involve largely the same techniques. It's also hilarious to hear me egregious name-drop C++. Ooooh, young James, you hilarious devil!

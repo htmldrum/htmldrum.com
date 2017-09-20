@@ -9,7 +9,7 @@ export default ({ data }) => {
           <div className="mw20 center ph3-ns">
             <div className="cf ph2-ns">
               <div className="fl w-100 w-50-ns pa2">
-                <div className="pv4 pa2 f6 f4-ns">{ data.site.siteMetadata.talks.blurb }</div>
+                <div className="pv4 pa2 f6 f4-ns" dangerouslySetInnerHTML={{ __html: data.site.siteMetadata.talks.blurb }}/>
               </div>
               <div className="fl w-100 w-50-ns pa2">
                 { data.site.siteMetadata.talks.presentations.map( talk => <TalkLink talk={talk}/>) }

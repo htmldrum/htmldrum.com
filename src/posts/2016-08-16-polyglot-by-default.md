@@ -50,10 +50,6 @@ couldn't organize your ActionScript ([AS2](http://help.adobe.com/en_US/FlashPlat
 lots of production applications in JavaScript and I've learnt that it's too losely typed, encourages too much testing, is too inflexible to modification
 and is too verbose. But hey, don't let that stop you learning your own lessons.
 
-![I got a lot of interests]({{ site.url }}/media/images/interests1.png)
-
-![In lots of things]({{ site.url }}/media/images/interests2.png)
-
 And there are lots of things I do like. And that'll be the focus of the conclusion of this diatribe. I leave it as an excercise to the reader to
 think about their own impressions and what their own tools have taught them. In no particular order, here is a list of languages and what they've taught me:
 
@@ -63,29 +59,19 @@ think about their own impressions and what their own tools have taught them. In 
   accumulation and integration of complex machinery. That magic is the ability to bury and marry complicated things in front of a willing participant.
   That CMOS begets bootloaders begets run levels begets networks of subsystems of countably infinite specificity. Memory layout, hierarchy and allocation
 
-  ![8088-8086 Assembly - 1]({{ site.url }}/media/images/80-86-1.png)
-
-  ![8088-8086 Assembly - 2]({{ site.url }}/media/images/80-86-2.png)
-
 * `ASM` will teach you that despite all our efforts to invent magical things, there is a physical reality born from our actions. I thank God that
   I will not have to work with quantum machines because ELF has hammered into me a determinism in all machines. Segments and labels accumulate to
   tangible electro-mechanical effects on logic gates and shifts in latches. I still compulisvely flinch at code that might cause a spill in an instruction pipeline when
   in reality most code I write probably does already. It teaches you that optimizations are the hard-won rewards of analysis. That it is only possible
   to pass the camel through the needle if you have a sufficienlty maleable camel.
 
-  ![ARM 5-strage Pipeline]({{ site.url }}/media/images/arm-5-stage-pipeline.png)
-
 * `C++`, `Java` and `C#` will teach you that the pound of flesh, is deerely bought. Or, that when you ask for abstraction you must give up
   understanding. As you demand access to more resources without paying the price of understanding their implementation at a lower level you are
   borrowing on your ability to command them. How do you refactor a JFrame to run without Swing? Or Win32? Or Cocoa? GTK+? Wayland? Thank God for SDL!
 
-  ![Kuratowski Planar Graph]({{ site.url }}/media/images/kuratowski-planar-graph.png)
-
 * `Python` is the modern Basic: it will teach you clarity of algorithmic expression in procedural programming. It will sprinkle your code with readability
   and focus your effort on the problem rather than the framework. If you avoid implementing your own classes and embrace the wide community of tools for
   data processing and visualization you will find a valuable companion for thinking about algorithms.
-
-  ![What industry programming looks like - 1]({{ site.url }}/media/images/prog-irl-1.jpg)
 
 * Python is to `Ruby` as Science is to Engineering. It is the toolbox. It is the greasy spanner, worn at the handle. It's full of standard approaches to
   implementing commercial problems: Homebrew, RSpec, Rails, RedMine, Rake. The standard library is expansive and embraces SmallTalk's mantra of complicated objects
@@ -97,8 +83,6 @@ think about their own impressions and what their own tools have taught them. In 
   When working with C-family languages, I miss `unless` and conditional checks placed after statment expressions ( `return false unless foo.nil?.!` ).
   Implemented as a YACC grammar, all components may be torn apart, inspected with standard tooling and customized as needed. It should be regarded as a
   great achivement of open source, along with GCC, GNU and glibc.
-
-  ![What industry programming looks like - 2]({{ site.url }}/media/images/prog-irl-2.jpg)
 
 * If Ruby is the wrench, `JavaScript` is the chopstick: agile and infinitely useful. It can be used leveraged as a shovel, sharpened to shiv or blunted to
   a (tiny) club. There are infinitely many correct implementations of a solution. I wish to stress that I belive this to be a great thing for spreading a
@@ -129,8 +113,6 @@ think about their own impressions and what their own tools have taught them. In 
   conceited, I do wish it was more popular. For there already exists a large gap between the semantic and denotational semantics in 'lower-level' languages, why not
   exploit this for a more universal representation?
 
-  ![The Little Lisper]({{ site.url }}/media/images/the-little-lisper.png)
-
 * Much like the distance between quantum mechanics and Newtonian physics, `Erlang` will teach you that in order to build software that runs quickly on many machines
   you have to ditch many of the ideas that made it run quickly on one machine. For the past decade we've only seen the continuation of Moore's Law because of
   cacheing and pipelining. C/C++ will teach you that data locality, minimizing stack frame sizes and the coordination of pointer access will lead to more efficien
@@ -140,14 +122,10 @@ think about their own impressions and what their own tools have taught them. In 
   input. With support for pattern matching and guards and symbols it encourages the rapid development of symbolic applications. With OTP the programmer has access to
   a lot of functionality for free, hooking in to well-documented, well-tested algorithmic appliances.
 
-  ![Big Step Semantics]({{ site.url }}/media/images/big-step-semantics.png)
-
 * `Racket` will teach you the value of DSL's. Heavily influenced by Scheme, it encourages working with languages as primatives. While some different languages employ
   interfaces or DSL's or API's to program against specific implementations or to coordinate application domains with library concerns, Racket encourages the wholesale
   consumption and construction of languages for any purpose. By sepparating concerns along language lines, Racket focuses on providing tools for the higher level manipulation
   of semantic primatives. This mirrors the development of different technologies for the web, graphics and audio programming.
-
-  ![Translation Table for CLOS]({{ site.url }}/media/images/translation-table-for-CLOS.png)
 
 * `Go` is the neanderthal on a skateboard. Wearing the smell of ancient programming practises and scars from email flamewars about design patterns, it achieves performance
   and cross platform compatability by focusing on a small core server-side functions and operates slightly above the machine level. You get access to raw arrays, structs
@@ -156,16 +134,12 @@ think about their own impressions and what their own tools have taught them. In 
   interlocking cogs that turn as your program executes. The skateboard is the decision to ditch complicated C-family OO for a simple, fast interface and
   struct-based type system. Without needing academic papers or other languages as inspiration Go has forged the way for composable abstractions with embedded types.
 
-  ![SOA Patterns]({{ site.url }}/media/images/SOA-patterns.png)
-
 * `PHP` is the long-dead pioneer, living and dying in the spirit of exploration. From an era when Apache and MySQL walked the Earth it was the glue between the server and the
   database. Configured with a `.ini` file it went up quickly and got you productive. With few facilities outside of returning text over a socket to an Apache thread, you needed to
   leverage your knowledge of GNU. It had ORM's and templating languages so product managers could sell CRM's and API's
   quickly. Most performant when stripped of any semblance of maintainability, with bizarre syntax and surviving the late introduction of core language features like Namespaces,
   it is useful for remembering that some of the web's most successful products didn't wait for a 'perfect' experience. Frequently, if you run with what you've got it will be
   enough to ship a Facebook or a Yahoo.
-
-  ![Zero Conf Networking]({{ site.url }}/media/images/zero-conf.png)
 
 * `Haskell` is the really hot bitchy lover you can't have. The product of decades of research and papers it presents itself as a universal interface to computability.
   Decoupled type and value constructors, a brutal type system, lazy evaluation, wide applicability with many options for output; it is the holy grail of neckbeards. However,
@@ -179,11 +153,7 @@ think about their own impressions and what their own tools have taught them. In 
   the syntactical distance between our **representation of thought** and our **implementation of solution**. Hindley-Milner type inference ensures unsound programs do not compile,
   Rank-N polymorphism gives productivity.
 
-  ![Notation Cheat Sheet - 1]({{ site.url }}/media/images/not-cheat-sheet-6.png)
-
 * `PureScript` is an implementation of category theory semantics atop the JavaScript VM. Whilst there is a great deal of enthusiasm around Elm, it lacks higher kinded types soa
   separate static declarations are required for Applicatives. Using Bower as the package manager, it has strong reproducability for a JS-based framework. It has a dynamic REPL
   so you get the kind of rapid prototyping, inspection and interaction that `IRB` and `clj` have made popular. It comes with great documentation that describes the runtime
   complexity of operations and should be regarded as a powerful language for constructing sophisticated browser-based applications.
-
-  ![Notation Cheat Sheet - 2]({{ site.url }}/media/images/not-cheat-sheet-7.png)

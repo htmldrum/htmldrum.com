@@ -16,29 +16,21 @@ As a preface to the exposition, here are some key points to keep in mind:
   - I have several environments set up and each is atomic. Whilst my work primarily involves LAMP development, my free time frequently involves Python and Java development. Whilst I won't go through the Python and Java set ups as I'm unhappy with the way they're organized and show far too much fluidity across projects, I will show you how to separate your development environments like Eclipse Workspaces.
   - My LAMP environment is very specific. I use my first screen as a focus for debugging and environment issues. It contains tailed Apache and PHP logs, a mysql and bash prompt and a small Vim editor for accessing host files and environment variables. If I weren't so opposed to live edits on development and production servers that aren't channeled through source control / continus integration services I'd have window #2 as a dedicated SSH window.
 
-<br />
-<center><img src='/media/images/tmux1.png' style='max-width:85%'></center>
-<br/>
-
   - Subsequent screens are used as file-oriented slaves. They primarily contain full-screen Vim editors but given how flexible sessions are in Tmux, they can contain bash prompts or tailed logs where relevant.
   - Colour, the most important attribute for some people, should be seen as uniquely specified within tmux. Instead of the GNU approach where you're supposed to memorize hex/octal combinations like it makes sense, Tmux uses the colorXXX scheme. To see all the available colors, run this as a bash script within tmux itself:
 
-{% highlight bash %}
+```bash
     #!/bin/bash
     for i in {0..255} ; do
         printf "\x1b[38;5;${i}mcolour${i}\n"
     done
-{% endhighlight %}
+```
 
 All props to cYrus for that one. For the pragmatic, here's a quick and dirty screenie of some popular colors. Please note that in order to test the colour schemes you'll have to stop all instances of tmux. If you're looking for transparent colour schemes, you'll need to run the script for yourself. Tmux gets sticky (not it's fault!) in OS X 10.8 so you'll probably have to manually kill threads when opening new consoles and not seeing your changes.
 
-<br />
-<center><img src='/media/images/tmux2.png' style='max-width:85%'></center>
-<br/>
-
 As for what colors I've chosen, well that's my poor taste innit?
 
-{% highlight bash %}
+```bash
 ## `prefix
 set-option -g prefix `
 
@@ -112,6 +104,6 @@ set -g status-right '#[fg=green]][#[fg=white] #T #[fg=green]][ #[fg=blue]%Y-%m-%
 
 # 0 is too far from ;)
 set -g base-index
-{% endhighlight %}
+```
 
 **Update 6/26/2016**: Added syntax highlighting.

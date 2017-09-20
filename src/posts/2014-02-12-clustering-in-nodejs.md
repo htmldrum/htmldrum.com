@@ -23,6 +23,47 @@ There's nothing special about Node's use of libuv as it has been implemented in 
 
 An interesting feature of Node is that by default it is single process (and single threaded). Node application response times can shoot up when slammed with large numbers of uncached requests. Short of dropping the nice on your process or increasing its timeslices, a solution to alleviating this is to extend the server process to multiple processes using the cluster module. In its implementation it resembles the fork/exec implementation in Unix. Joyent's encouragement for developers to spin up large numbers of processes to scale applications resembles Erlang's process model.
 
-Here's a quick Node script that spins up 2 workers under a process leader. Strange that it doesn't reference the process global to indicate what processes are the parents but it does localize this decision to the cluster module.
+[Here's a quick Node script](https://gist.github.com/htmldrum/8943122) that spins up 2 workers under a process leader. Strange that it doesn't reference the process global to indicate what processes are the parents but it does localize this decision to the cluster module.
 
-<script src="https://gist.github.com/htmldrum/8943122.js"></script>
+```javascript
+var cluster = require('cluster');
+
+if (cluster.isWorker) {
+
+  console.log('Worker ' + process.pid + ' has started.');
+
+  // Send message to master process.
+  process.send({msgFromWorker: 'This is from worker ' + process.pid + '.'})
+
+  // Receive messages from the master process.
+  process.on('message', function(msg) {
+    console.log('Worker ' + process.pid + ' received message from master.', msg);
+  });
+
+}
+
+
+if (cluster.isMaster) {
+
+  console.log('Master ' + process.pid + ' has started.');
+
+  // Fork workers.
+  for (var i = 0; i < 2; i++) {
+    var worker = cluster.fork();
+
+    // Receive messages from this worker and handle them in the master process.
+    worker.on('message', function(msg) {
+      console.log('Master ' + process.pid + ' received message from worker ' + this.pid + '.', msg);
+    });
+
+    // Send a message from the master process to the worker.
+    worker.send({msgFromMaster: 'This is from master ' + process.pid + ' to worker ' + worker.pid + '.'});
+  }
+
+  // Be notified when worker processes die.
+  cluster.on('death', function(worker) {
+    console.log('Worker ' + worker.pid + ' died.');
+  });
+
+}
+```

@@ -8,7 +8,8 @@ When passing variables to Elasticsearch, you have to honour its syntax. It deman
 The View
 --------
 It all starts with the HTML. Somewhere in a table will lurk HTML like this.
-{% highlight html %}<thead>
+```html
+<thead>
   <tr>
     <th><input class="filter" id="name" value="<%= filter_text['name'] || ''%>" placeholder="Flight Name"></th>
     <th><input class="filter" id="taster_name" value="<%= filter_text['taster_name'] || ''%>" placeholder="Taster Name"></th>
@@ -18,7 +19,8 @@ It all starts with the HTML. Somewhere in a table will lurk HTML like this.
     <th><input class="filter" id="assignee_name" value="<%= filter_text['assignee_name'] || ''%>" placeholder="Assignee Name"></th>
     <th><input class="filter" id="editorial_status_title" value="<%= filter_text['editorial_status_title'] || ''%>" placeholder="Status"></th>
   </tr>
-</thead>{% endhighlight %}
+</thead>
+```
 
 This HTML represents a query against a record of a wine tasting. It has a name, a taster, a date, timestamps and editorial information. Somewhere in your view you will periodically get and set the values of the fields depending on business logic. However, we do not represent the object like this in Elasticsearch or in the DB. Here it is de-normalized.
 
@@ -26,7 +28,7 @@ The Model
 --------
 
 We prepare the index record using this DB query
-{% highlight sql %}
+```sql
       "SELECT to_json(t) FROM (
         SELECT a.id,
                a.name,
@@ -82,11 +84,12 @@ We prepare the index record using this DB query
                   WHERE b.id = a.editorial_status
                ) as editorial_status
         FROM flights a
-        WHERE a.id in ('#{ids.join( '\', \'' )}')) t"{% endhighlight %}
+        WHERE a.id in ('#{ids.join( '\', \'' )}')) t"
+        ```
 
 With schema defined by this Elasticsearch object
 
-{% highlight json %}{
+```{
   settings: {
     index: {
       number_of_shards: 1
@@ -183,13 +186,13 @@ With schema defined by this Elasticsearch object
       }
     }
   }
-}{% endhighlight %}
+}```
 
 As you can see, it's not going to be easy to query over the assignee, taster or editorial status as these are nested objects themselves, requiring syntactical mark-up in the JSON query issued to the Elasticsearch query engine.
 
 To manage this mapping we generate a query hierarchy: just an object that's marked up with the correctly nested values.
 
-{% highlight javascript %}     
+```javascript
 var qh = {
   created_at: [],
   updated_at: [],
@@ -205,13 +208,13 @@ var qh = {
     title: []
   }
 };
-{% endhighlight %}
+```
 
 The Controller
 --------
 Somewhere in your controller you'll have an event listener waiting for the user to issue the query. When this handler is triggered, you'll itterate over the values in the filter fields of the input fields and generate a nested query object for the Elasticsearch query engine. Your code may look a little something like this (`_` is just a reference to a fn library like [Lodash] or [Underscore.js]):
 
-{% highlight javascript %}     
+```
 _.each(this.filters, function(f){
 
   var fid = f[0].toString();
@@ -240,13 +243,13 @@ _.each(this.filters, function(f){
     }
   }
 });
-{% endhighlight %}
+```
 
 For each filter, parse the text in the input field (user may enter syntactical sugar to conduct different queries in ES), then add the query type to the query hierarchy.
 
 For nested queries, you need to resolve the edge node of the tree like this
 
-{% highlight javascript %}case 'assignee_name':
+```case 'assignee_name':
   switch( v.type ){
     case 'term':
       qh.assignee.name.push({ "match": { "assignee.name": v.value.toString() }});
@@ -265,14 +268,18 @@ For nested queries, you need to resolve the edge node of the tree like this
   break;
 default:
   throw "Unhandled Exception";
-  break;{% endhighlight %}
+  break;
+```
+
 Now, with a completed query hierarchy we pass it to this library function which recurses the query hierarchy and correctly returns the Elasticsearch JSON.
  
-{% highlight javascript %}return MSES.parse(qh);{% endhighlight %}
+```javascript
+  return MSES.parse(qh)
+```
 
 Looking a little something like this. I immitate variadric function invocation in Erlang.
 
-{% highlight javascript %}
+```javascript
    (function(){ 
    define([ 'underscore' ], function( _ ){
 
@@ -391,7 +398,7 @@ Looking a little something like this. I immitate variadric function invocation i
 		  
   });
 }());
-{% endhighlight %}
+```
 
 Now you don't need to create back-end controllers to parse ES queries, you can do it all client side. For more information, check out [these gists](https://gist.github.com/htmldrum/7d889073bb5ad3d9f79a).
 

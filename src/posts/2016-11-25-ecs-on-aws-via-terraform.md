@@ -5,8 +5,6 @@ summary: Terraform is a light-weight alternative to complex infrastructure manag
 categories: terraform aws ecs docker
 TODO: Gists for stages. Testing that the configuration works
 ---
-*15/12/16 - In progress.*
-
 Infrastructure management tools are not new and are on a continuum of complexity. Most sit at the end of high complexity, requiring nodes to facilitate resource coordination and authentication. Under Puppet, Chef and CFEngine nodes treat the networking mesh like a religious document. Almost assuming a side-channel process of architecture diagrams and VM budgeting, these frameworks assume the presence of distributed code and configuration stores, and authentication and autorization nodes. Recently, developers have been flocking to the other end of the spectrum with Ansible and Chef Solo promising to remove the headaches of key signing and set up getting in the way of doing actual work.
 
 Enter [Terraform](http://terraform.io/).

@@ -20,9 +20,6 @@ It's implementation as a host protocol covers over several properties useful to 
 - Service discovery: Symbolic identifiers nominate nodes in the network mesh. These nodes are address by symbolic identifiers ("names") instead of machine
 - Open Protocol implementations: The need for cooperative protocols facilitating the communication of independent processes forces 
 - Reduced barrier to entry for web services: Removes the need to manage 'web' (port 80) infrastructure. CRUD API's have so much inertia (in terms of brain power and maintenance resources) that we look to it as a solution to the overhead it causes.
-{% raw %}<p></p>{% endraw %}
-{% raw %}<p></p>{% endraw %}
-{% raw %}<hr />{% endraw %}
 
 It's important to acknowledge this as a cluster of companies are making it their business to leverage the fact that users cannot organize and manage networks beyond their router. Everything will automagically connect to the router and begin yelling your details at remote servers but few devices will operate together in ways that are transparent (hence able to be leveraged by) the user.
 
@@ -43,8 +40,6 @@ Lots of guidance from RFCs in this space:
 
 Maybe we need to standardised behind a service provider instead? Whatever the case may be, the tsunami of IPs that the Internet of Things will bring nmay force the answer.
 
-{% raw %}<hr />{% endraw %}
-
 Sophistication in the state of implementation today outside of the Evil 4 (Google, Facebook, Amazon, Baidu) is poor and largely reflective of the lack of standard tools. Providers are leveraging packed plain-text state transfers on top of managed state-machine semantics and producing slow, buggy, inuintuitive experiences. The effort of drawing together a stack of technology to produce an ordered response that is on specification using the current tools, seems to defeat the effort of delivering the player a connected experience. Buffering, spinning, waiting, lock-step message exchange is forcing us to spend too much time staring at spinners. At the moment, GTA Online takes ~20m to match me with ~4 other players to play a game for only 10m. It's a joke. Smarter networing decisions and better game design should  be able to glean more detailed information at lower latency. They've realized this recently as they've abandoned the 'dungeon' matchmaking multiplayer experience in favour of the persistent world.
 
 How can they have both?
@@ -55,8 +50,7 @@ Taking some liberties here as a Product Manager, I'll restate my critique as a u
 - Lower latency matchmaking.
 - Lower barriers to gameplay.
 - A means of measuring these 'latencies' and 'barriers'.
-{% raw %}<p></p>{% endraw %}
-{% raw %}<p></p>{% endraw %}
+
 ### 2. Explore implementation space
 Lots of solutions are thrown at the wall here. The important thing is to encourage broad domain problem solving. Extend the range of suggestions to all possible things and limit the range of implementations to a viable solution. Some ideas:
 - Increased information density at lower throughputs.
@@ -69,10 +63,8 @@ Lots of solutions are thrown at the wall here. The important thing is to encoura
   - Implement network topology leaving any coordination work external to network participants to be guaranteed to be completed within a reasonable time. This can be implemented using traditional spidering and probing automata.
   - Minimize the amount of work coordinating nodes are responsible for.
     - Facilitate independent querying and coordination by allowing nodes to act as independently addressable directories of services. Here's how you'd let players host their own web pages with `dns-sd`.
-{% raw %}<p></p>{% endraw %}
-{% raw %}<p></p>{% endraw %}
-{% raw %}<p></p>{% endraw %}
-{% highlight text %}
+
+```text
 ; Invite clients to browse this domain
 b._dns-sd._udp	    	   	       PTR  	  @
 lb.dns-sd._udp			       PTR  	  @
@@ -81,7 +73,7 @@ lb.dns-sd._udp			       PTR  	  @
 _http._tcp			       PTR	Our\ Web\ Page._http._tcp
 Our\ Web\ Page._http._tcp	       SRV	0 0 80 www
           			       TXT	path=/
-{% endhighlight %}
+```
 
 ### 3. Implement
 Lots of open source tools here to help with implementation. `Go` and `Rust` are excellent systems languages with support for static and dynamic analysis of compilation and performance. Native interop is largely trivial with composable LLVM toolchains.

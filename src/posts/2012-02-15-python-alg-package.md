@@ -6,7 +6,7 @@ summary: Ahead of some interviews I've implemented some common datastructures an
 ---
 Frequently used [data structures and algorithms in python](https://github.com/htmldrum/PythonAlgPackage).
 
-{%highlight python %}
+```python
 """
     Author: James Meldrum
     Date: Feb 13, 2010
@@ -101,6 +101,6 @@ class _QueueNode(object):
   def __init__(self,item):
     self.item = item
     self.next = None
-{% endhighlight %}
+```
 
 **Update 26/6/2016:** Added an example here.

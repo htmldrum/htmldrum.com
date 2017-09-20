@@ -13,7 +13,7 @@ Notes:
 - Mappings. Finally the meat of the index. Indexes map closely to models. They can have attributes and foreign keys. In this case, foreign key constraints are maintained in the DB (more later) but mapped to the index on index creation/updates. Properties such as 'location' are backed by their own models but mapped to the indexed entity as a cacheing mechanism.
 
 
-{% highlight json %}
+```json
 {
   settings: {
     index: {
@@ -111,13 +111,15 @@ Notes:
       }
     }
   }
-}{% endhighlight %}
+}
+```
 
 Various modifiers are used to prevent Elasticsearch from analyzing long fields (description). Format specifiers are given to aid Elasticsearch's treatment of timestamp and int searches and nested properties allow nested queries.
 
 I mentioned before that constraints are maintained in the DB. Elasticsearch (as much as it tries to spruke itself as a complete solution) is not appropriate as a non-volatile datastore. It will not maintain ACID constraints and is not as useful in querying objects as relational DB's. As an aside, here's the SQL for preparing this index (uses psql extensions in a rails context)
 
-{% highlight sql %}"SELECT to_json(t) FROM (
+```sql
+SELECT to_json(t) FROM (
    SELECT a.id,
           a.name,
           a.description,
@@ -172,6 +174,7 @@ I mentioned before that constraints are maintained in the DB. Elasticsearch (as 
              WHERE b.id = a.editorial_status
           ) as editorial_status
    FROM flights a
-   WHERE a.id in ('#{ids.join( '\', \'' )}')) t"{% endhighlight %}
+   WHERE a.id in ('#{ids.join( '\', \'' )}')) t"
+   ```
 
 Keeping this query in SQL (and not relying on ActiveRecord relations) allows background workers to cache intermediate results and keep the load off rails - which, as much as I love it, is slow.

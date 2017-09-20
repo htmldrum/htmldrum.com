@@ -51,7 +51,7 @@ With that said, here's how I set it up my AWS rig:
 3. Go to the the Elastic IP's tab and create and assign a public IP to your instance ( necessary only for addressing the server publically )
 4. Now, if your instances have been launched and it has the default EBS drive mounted you should be able to get in:
 
-{% highlight bash %}
+```bash
 ssh -i /PATH/TO/KEY.PEM ROOT-USER-NAME@PUBLIC-IP
 
 # PATH/TO/KEY.PEM - The path to the ec2 key you downloaded when setting up the instance
@@ -123,6 +123,6 @@ git checkout -b "init"
 v.mk $SITE_NAME
 sudo apachectl start
 
-ps -A | grep "httspd"{% endhighlight %}
+ps -A | grep "httspd"```
 
 And we're good.

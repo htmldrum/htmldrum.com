@@ -7,7 +7,7 @@ summary: Simple script for generating Sempahores in JS
 
 Semaphores are syntactical control structures used to coordinate access to a shared resource.
 
-{% highlight javascript %}
+```javascript
 
  /**
   * Semaphore
@@ -34,6 +34,6 @@ Semaphores are syntactical control structures used to coordinate access to a sha
     }
   };
 
-}}{% endhighlight %}
+}}```
 
 **Update 6/26/2016:** Added syntax highlighting.

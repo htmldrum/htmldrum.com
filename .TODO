@@ -13,7 +13,7 @@ x Render presentations properly
 # TODO
 - Render the posts
   x Render the list element
-  - Render the post body
+  x Render the post body
   - Render the code segments nicely
 - Add images
 - Add social networking

@@ -4,10 +4,6 @@ title: RabbitMQ the best friend you never knew
 categories:  python rabbitmq
 summary: Evaluating RabbitMQ
 ---
-    Bin: RabbitMQ Client / Server
-    Env: Mac OSX (available to all env)
-    Desc: RabbitMQ
-
 Summary
 -------
 
@@ -19,24 +15,26 @@ Installation instructions for RabbitMQ
 This tute is mainly for OSX users but as it's the defacto standard, the same commands and set up should work on all environments.
 
 1. Install RabbitMQ and Erlang
-{% highlight bash %}sudo port install rabbitmq-server
-sudo port install erlang{% endhighlight %}
+
+`sudo port install rabbitmq-server; sudo port install erlang`
 
 2. Path
 One big problem with macports is that the bin installs are frequently all over the place. So I added the following line to my `.zshrc` (if you don't use zsh or use bash or don't know what I'm talking about add the following lines to `~/.bashrc`)
-{% highlight bash %}PATH=$PATH:/opt/local/lib/rabbitmq/bin
-PATH=$PATH:/opt/local/lib/erlang/bin{% endhighlight %}
+
+`PATH=$PATH:/opt/local/lib/rabbitmq/bin; PATH=$PATH:/opt/local/lib/erlang/bin `
+
 and ensure you reload your conf
-{% highlight bash %}source ~/.zshrc{% endhighlight %}
+
+`source ~/.zshrc`
 
 3. Run
-{% highlight bash %}sudo rabbitmq-server -detached{% endhighlight %}
+```bash sudo rabbitmq-server -detached ```
 
 4. Make sure it's running
 
-{% highlight bash %}ps -A | grep -i "rabbit"
+`ps -A | grep -i "rabbit"`
     
-# => 83724 ??         0:01.68 /opt/local/lib/erlang/erts-5.9.2/bin/beam.smp -W w -K true -A30 -P 1048576 -- -root /opt/local/lib/erlang -progname erl -- -home /Users/jrm -- -noshell -noinput -sname rabbit@Exhibit-E -boot /opt/local/var/lib/rabbitmq/mnesia/rabbit@Exhibit-E-plugins-expand/rabbit -kernel inet_default_connect_options [{nodelay,true}] -sasl errlog_type error -sasl sasl_error_logger false -rabbit error_logger {file,"/opt/local/var/log/rabbitmq/rabbit@Exhibit-E.log"} -rabbit sasl_error_logger {file,"/opt/local/var/log/rabbitmq/rabbit@Exhibit-E-sasl.log"} -os_mon start_cpu_sup false -os_mon start_disksup false -os_mon start_memsup false -mnesia dir "/opt/local/var/lib/rabbitmq/mnesia/rabbit@Exhibit-E" -noshell -noinput{% endhighlight %}
+`# => 83724 ??         0:01.68 /opt/local/lib/erlang/erts-5.9.2/bin/beam.smp -W w -K true -A30 -P 1048576 -- -root /opt/local/lib/erlang -progname erl -- -home /Users/jrm -- -noshell -noinput -sname rabbit@Exhibit-E -boot /opt/local/var/lib/rabbitmq/mnesia/rabbit@Exhibit-E-plugins-expand/rabbit -kernel inet_default_connect_options [{nodelay,true}] -sasl errlog_type error -sasl sasl_error_logger false -rabbit error_logger {file,"/opt/local/var/log/rabbitmq/rabbit@Exhibit-E.log"} -rabbit sasl_error_logger {file,"/opt/local/var/log/rabbitmq/rabbit@Exhibit-E-sasl.log"} -os_mon start_cpu_sup false -os_mon start_disksup false -os_mon start_memsup false -mnesia dir "/opt/local/var/lib/rabbitmq/mnesia/rabbit@Exhibit-E" -noshell -noinput`
 
 Intro to RabbitMQ as a queuing service
 --------------------------------------
@@ -45,19 +43,19 @@ RabbitMQ is a message broker. The principal idea is pretty simple: it accepts an
 
 Producing means nothing more than sending. A program that sends messages is a producer. We'll draw it like that, with "P":
 
-![Node P]({{ site.url }}/media/images/p.png)
+![Node P](/static/media/images/p.png)
 
 A queue is the name for a mailbox. It lives inside RabbitMQ. Although messages flow through RabbitMQ and your applications, they can be stored only inside a queue. A queue is not bound by any limits, it can store as many messages as you like ‒ it's essentially an infinite buffer. Many producers can send messages that go to one queue, many consumers can try to receive data from one queue. A queue will be drawn as like that, with its name above it:
 
- ![Queue P]({{ site.url }}/media/images/p_q.png)
+ ![Queue P](/static/media/images/p_q.png)
 
 Consuming has a similar meaning to receiving. A consumer is a program that mostly waits to receive messages. On our drawings it's shown with "C":
 
-![Node C]({{ site.url }}/media/images/c.png)
+![Node C](/static/media/images/c.png)
 
 Note that the producer, consumer, and broker do not have to reside on the same machine; indeed in most applications they don't.
 
-![Queue P tasks Node C]({{ site.url }}/media/images/p_q_c.png)
+![Queue P tasks Node C](/static/media/images/p_q_c.png)
 
 Producer sends messages to the "hello" queue. The consumer receives messages from that queue.
 
