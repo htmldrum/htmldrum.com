@@ -46,3 +46,17 @@ html
 a, u {
     text-decoration: none;
 }
+
+.postContainer {
+    max-width: 1400px;
+}
+
+.postContainer pre {
+    overflow-x: scroll;
+}
+
+.postContainer img {
+    max-width: 1000px;
+    display: block;
+    margin-bottom: 30px;
+}

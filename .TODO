@@ -9,14 +9,16 @@ x Bring over other content
 x Bring over presentations
 x Render presentations properly
   x Impress.js exporter?
-
-# TODO
-- Render the posts
+x Render the posts
   x Render the list element
   x Render the post body
-  - Render the code segments nicely
-- Add images
+  x Render the code segments nicely
+x Add images
+
+# TODO
+- Add image of me
 - Add social networking
+- Add presentations as build step
 - Host on AWS
 - Update resume
 - CloudFront cacheing

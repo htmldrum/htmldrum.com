@@ -22,7 +22,6 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       name: `date`,
       value: date,
     })
-
     if(typeof node.frontmatter.categories === 'undefined') {
       createNodeField({
         node,

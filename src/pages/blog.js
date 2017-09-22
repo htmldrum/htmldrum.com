@@ -36,7 +36,7 @@ export const query = graphql`
           id
           fields {
             slug
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "DD MMM, YYYY")
             categories
           }
           frontmatter {

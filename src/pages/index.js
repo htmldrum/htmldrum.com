@@ -5,7 +5,7 @@ export default () =>
     <div className="fl w-25 pa2"></div>
     <div className="fl tc w-50-ns pa2 justify-center">
       <div className="b purple f4 f2-ns pa2">👋 Hi, I'm James</div>
-      <div className="content-center pa4-ns br-100-ns bg-gold mw0 center mt4-ns mv2-ns mb6-ns">
+      <div className="content-center pa2-ns br-100-ns bg-gold mw0 center mt4-ns mv2-ns mb6-ns">
         <img className="pa5-ns" src="/static/home.jpg" />
       </div>
       <div className="f6 f4-ns purple pa2-ns ma4 overflow-y-auto">
@@ -23,9 +23,8 @@ export default () =>
            I enjoy recreationally programming in Go and Rust, within Emacs.
            In my spare time I enjoy horticulture and electronics.<br />
            <br />
-           I'm currently looking for job opportunities outside the Sydney area. Either remote or on-site.<br />
-           If you'd like to get in contact with potential opportunities I can be reached on twitter twitter_handle<br />
-           You can find my CV <nuxt-link to="~assets/cv.pdf">here</nuxt-link>.
+           I'm currently looking for job opportunities in the Sydney area. Either remote or on-site.<br />
+           If you'd like to get in contact with potential opportunities I can be reached on twitter @lisp_ceo<br />
       </div>
     </div>
     <div className="fl w-25 pa2"></div>
