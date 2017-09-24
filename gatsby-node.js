@@ -4,7 +4,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
-//    const slug = ("/blog" + createFilePath({ node, getNode, basePath: `posts` })).slice(0, -1);
+    //    const slug = ("/blog" + createFilePath({ node, getNode, basePath: `posts` })).slice(0, -1);
     const slug = ("/blog" + createFilePath({ node, getNode, basePath: `posts` }))
     const dateMatch = node.id.match(/[0-9]{4}\-[0-9]{2}\-[0-9]{2}/)
     if(dateMatch == null) {
@@ -35,6 +35,19 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         value: node.frontmatter.categories.split(' ')
       })
     }
+    // if(typeof node.frontmatter.draft === 'undefined') {
+    //   createNodeField({
+    //     node,
+    //     name: `draft`,
+    //     value: false
+    //   })
+    // } else {
+    //   createNodeField({
+    //     node,
+    //     name: draft,
+    //     value: true
+    //   })
+    // }
   }
 }
 
@@ -53,15 +66,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 }
               }
             }`
-            ).then(result => {
-              result.data.allMarkdownRemark.edges.map(({ node }) => {
-                createPage({
-                  path: node.fields.slug,
-                  component: path.resolve(`./src/templates/post.js`),
-                  context: { slug:  node.fields.slug }
-                })
-              })
-              resolve()
-            })
+           ).then(result => {
+             result.data.allMarkdownRemark.edges.map(({ node }) => {
+               createPage({
+                 path: node.fields.slug,
+                 component: path.resolve(`./src/templates/post.js`),
+                 context: { slug:  node.fields.slug }
+               })
+             })
+             resolve()
+           })
   })
 }

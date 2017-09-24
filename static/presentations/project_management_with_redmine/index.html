@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Project Management With Redmine | @htmldrum</title>
+    <meta name="description" content="Presentation given at Maxwell Forest on Docker" />
+    <meta name="author" content="James Meldrum <htmldrum@tutanota.com>" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="./css/impress-demo.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  </head>
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    
+    Now that's the core element used by impress.js.
+    
+    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
+    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
+    
+    You probably won't need it now, but there are some configuration options that can be set on this element.
+    
+    To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
+    a number of ms. It defaults to 1000 (1s).
+    
+    You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
+    It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
+    If you are willing to change this value make sure you understand how CSS perspective works:
+    https://developer.mozilla.org/en/CSS/perspective
+    
+    But as I said, you won't need it for now, so don't worry - there are some simple but interesing things
+    right around the corner of this tag ;)
+    
+-->
+<div id="impress">
+
+    <!--
+        
+        Here is where interesting thing start to happen.
+        
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+        
+        Positioning information is passed through data attributes.
+        
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'.
+        
+        It will not be rotated or scaled.
+        
+    -->
+    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
+      <h1>Project Management With Redmine</h1>
+      <center>
+        <img src="./images/redmine_logo.png" style="margin-top:-2em">
+      </center>
+    </div>
+
+    <!--
+        
+        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+        
+        So in the example below it'll be `step-2`.
+        
+        The hash part of the url when this step is active will be `#/step-2`.
+        
+        You can also use `#step-2` in a link, to point directly to this particular step.
+        
+        Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
+        Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
+        
+    -->
+    <div id="what" class="step slide" data-x="0" data-y="-1500">
+      <h1>What Is A Project</h1>
+      <ol>
+        <li>Technical</li>
+        <li>Editorial</li>
+        <li>Design</li>
+        <li>Requirements</li>
+        <li>Marketing</li>
+        <li>Timeliness</li>
+      </ol>
+      <br>
+      <div>What gets prioritized?</div>
+      <div>Changes?</div>
+      <div>Feedback?</div>
+    </div>
+
+    <div id="howdoweeven" class="step slide" data-x="1000" data-y="-1500">
+      <div>How does <i>anything</i> get done?</div>
+      <div>How does anything <i>stay</i> done?</div>
+      <div>Why are we so interested in the unknown unknowns?</div>
+      <div>Why do we focus so much on the known unknowns?</div>
+      <div>How do we know we've discovered all the unknown unknowns?</div>
+      <div>What's the value of an estimate on unknown unknowns?</div>
+      <div style="margin-bottom:1em">How do we get better estimates?</div>
+      <center>
+        <img src="./images/tim-and-eric-mind-blown.gif">
+      </center>
+    </div>
+
+
+    <div class="step slide" data-x="2000" data-y="-1500">
+      <h1>Complexity</h1>
+      <div>Enter 'PM' methodologies</div><br />
+      <ol>
+        <li>Waterfall <span style="color:rgb(229, 52, 81);">&#x1f608;</span></li>
+        <li>PRiSM</li>
+        <li>PMI</li>
+        <li>Six Sigma <span style="color:rgb(106, 184, 106)">&#x1f638;</span></li>
+        <li>Lean Six Sigma <span style="color:rgb(106, 184, 106)">&#x1f638;</span></li>
+        <li>SDLC</li>
+        <li>Critical Chain / Critical Path</li>
+        <li>Agile <span style="color:rgb(106, 184, 106)">&#x1f638;</span></li>
+        <li>RUP</li>
+        <li>Scrum <span style="color:rgb(106, 184, 106)">&#x1f638;</span></li>
+      </ol>
+    </div>
+
+    <div class="step slide" data-x="3000" data-y="-1500">
+      <h1 style="margin-bottom:0em">MOAR Complexity</h1>
+      <ol style="margin-bottom:1em">
+        <li>Configuration Management</li>
+        <li>Environment Management</li>
+        <li>Documentation</li>
+        <li>Quality Assurance (QA) </li>
+        <li>User Experience (UX)</li>
+      </ol>
+      <center>
+      <img src="./images/eddie-whaaa.gif">
+      </center>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="0">
+      <h1>Enter Redmine</h1>
+      <ol>
+        <li>Free ( as in Freedom )</li>
+        <li>Issue Tracking ( Ticketing )</li>
+        <li>Project Administration</li>
+        <li>SCM browser</li>
+        <li>Documentation</li>
+        <li>Wiki</li>
+        <li>RESTful</li>
+        <li>More!</li>
+      </ol>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="0">
+      <h1>Cool...</h1>
+      <center>
+        <img style="min-height:380px" src="./images/omgcat.gif">
+      </center>
+    </div>
+
+    <div class="step slide" data-x="1000" data-y="0">
+      <h1>Redmine Checklist</h1>
+      <dl>
+        <dt>PM Method</dt>
+          <dd>What Project Methodology you're going to follow</dd>
+        <dt>Roles</dt>
+          <dd>Map from PM roles to team members</dd>
+        <dt>Timeline</dt>
+          <dd>What are the relevant dates for delivery?</dd>
+        <dt>Components</dt>
+          <dd>What are the components for delivery?</dd>
+      </dl>
+    </div>
+
+    <div class="step slide" data-x="2000" data-y="0">
+      <h1 style="margin-bottom:0em">Let's Do This</h1>
+      <dl>
+        <dt>PM Method</dt>
+          <dd>Lean Scrum</dd>
+        <dt>Roles</dt>
+          <dd>JM -> Scrum</dd>
+          <dd>SC -> Scrum</dd>
+          <dd>DVH -> Scrum</dd>
+          <dd>DN -> Product Owner</dd>
+        <dt>Timeline</dt>
+          <dd>11/1/2013 - Countdown</dd>
+          <dd>11/11/2013 - 11/18/2013 - Unveils begin</dd>
+          <dd>12/11/2013 - Put the toy away </dd>
+        <dt>Components</dt>
+          <dd>9 sections</dd>
+          <dd>Daily Updates</dd>
+          <dd>CMS w/ <1s Update Time</dd>
+      </dl>
+    </div>
+
+    <div class="step slide" data-x="3000" data-y="0">
+      <center>
+        <a target="_blank" href="http://redmine.mshanken.com">
+          <img style="min-height:570px" src="./images/albundy_shock.gif" alt="Al is excited" />
+        </a>
+      </center>
+    </div>
+
+    <div class="step" data-x="1000" data-y="-3000" data-rotate-y="100" >
+      <h1 style="font-family:'Trade Winds';color:white;">I wanna do that</h1>
+    </div>
+    <div class="step" data-x="1800" data-y="-2500" data-rotate-y="100">
+      <h1 style="font-family:'Trade Winds';color:white;">You can!</h1>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="1500">
+      <h1>Redmine at MShanken</h1>
+      <dl>
+        <dt>URL (within VPN)</dt>
+          <dd>http://redmine.mshanken.com</dd>
+        <dt>Administrators</dt>
+          <dd>MT</dd>
+          <dd>DC</dd>
+          <dd>RO</dd>
+          <dd>DVH</dd>
+          <dd>JM</dd>
+        <dt>Methodologies</dt>
+        <dd>Find yours!</dd>
+      </dl>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="1500">
+      <h1>Moar Information</h1>
+      <ol>
+        <li><a target="_blank" href="http://redmine.org">The Redmine Project</a></li>
+        <li><a target="_blank" href="http://www.packtpub.com/mastering-redmine/book">Mastering Redmine, Andriy Lesyuk</a></li>
+        <li><a target="_blank" href="http://www.redminebacklogs.net/">Redmine Backlogs: Agile In Redmine</a></li>
+        <li><a target="_blank" href="http://www.openlogic.com/wazi/bid/188069/Project-Management-with-Redmine/">Intro to Redmine</a></li>
+        <li><a target="_blank" href="http://www.mountaingoatsoftware.com/agile/scrum/">Scrum by Mountain Goat Software</a></li>
+        <li><a target="_blank" href="http://pivotallabs.com/tools/">Scrum at Pivotal Labs</a></li>
+        <li><a target="_blank" href="http://scrummethodology.com/">Scrum Methodology</a></li>
+      </ol>
+    </div>
+
+    <div class="step slide" data-x="1000" data-y="1500">
+      <h1>Now Go Make Projects!</h1>
+      <center>
+        <img src="./images/You_are_a_genius.gif">
+      </center>
+    </div>
+
+    <div class="step slide" data-x="2000" data-y="1500">
+      <h1>Attribution</h1>
+      <dl>
+        <dt>Gifs</dt>
+          <dd>http://reactiongifs.com</dd>
+        <dt>Impress.js</dt>
+          <dd>http://bartaz.github.io/impress.js</dd>
+        <dt>The Rest</dt>
+        <dd>James Meldrum, 2013</dd>
+        <dd>http://twitter.com/jamejamebutdiff/</dd>
+      </dl>
+    </div>
+
+
+    <div id="overview" class="step" data-x="1500" data-y="0" data-scale="8">
+    </div>
+
+</div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+<!--
+    
+    Last, but not least.
+    
+    To make all described above really work, you need to include impress.js in the page.
+    I strongly encourage to minify it first.
+    
+    In here I just include full source of the script to make it more readable.
+    
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. Not only because it's a good practice, but also
+    because it should be done when the whole document is ready.
+    Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
+    
+-->
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+<!--
+    
+    The `impress()` function also gives you access to the API that controls the presentation.
+    
+    Just store the result of the call:
+    
+        var api = impress();
+    
+    and you will get three functions you can call:
+    
+        `api.init()` - initializes the presentation,
+        `api.next()` - moves to next step of the presentation,
+        `api.prev()` - moves to previous step of the presentation,
+        `api.goto( idx | id | element, [duration] )` - moves the presentation to the step given by its index number
+                id or the DOM element; second parameter can be used to define duration of the transition in ms,
+                but it's optional - if not provided default transition duration for the presentation will be used.
+    
+    You can also simply call `impress()` again to get the API, so `impress().next()` is also allowed.
+    Don't worry, it wont initialize the presentation again.
+    
+    For some example uses of this API check the last part of the source of impress.js where the API
+    is used in event handlers.
+    
+-->
+
+</body>
+</html>

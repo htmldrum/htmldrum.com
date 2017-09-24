@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Prometheus For Rails | @htmldrum</title>
+    <meta name="description" content="Presentation given at Maxwell Forest on Docker" />
+    <meta name="author" content="James Meldrum <htmldrum@tutanota.com>" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="/static/presentations/prometheus/css/impress-demo.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  </head>
+  <body class="impress-not-supported">
+    <div class="fallback-message">
+      <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+      <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+    <div id="impress">
+      <div id="slide1" class="step slide" data-x="-2000" data-y="-1500">
+        <center>
+          <h2 style="text_center">Prometheus For Rails</h2>
+        </center>
+        <br />
+        <br />
+        <center>
+          <img src ="/static/presentations/prometheus/PrometheusImages/3380462.png"/>
+          <img style="max-width: 105px;" src ="/static/presentations/prometheus/PrometheusImages/rails.png"/>
+        </center>
+        <br />
+        <br />
+        <center>
+          <h5>Scalable Stream-oriented, pull-based Monitoring</h5>
+        </center>
+      </div>
+      <div id="me" class="step slide" data-x="-1000" data-y="-1500">
+        <h5>Who Am I?</h5><br /><br />
+        <ul>
+          <li>@lisp_ceo - Twitter</li>
+          <li>Backend Engineer - Maxwell Forest</li>
+          <li>Banking/Financial Services</li>
+          <li>Integrations with banking systems</li>
+        </ul>
+      </div>
+      <div id="slide2" class="step slide" data-x="0" data-y="-1500">
+        <h5>Cloud Native Computing Foundation</h5>
+        <center>
+          <img src ="/static/presentations/prometheus/PrometheusImages/CNCF.png"/>
+        </center>
+      </div>
+      <div id="slide3" class="step slide" data-x="1000" data-y="-1500">
+        <h5>Users</h5>
+        <center>
+          <img width="700px" src="/static/presentations/prometheus/PrometheusImages/Users.png">
+        </center>
+        <h5>Product journeys</h5>
+        <ul>
+          <li>
+            <a href="http://prometheus.io/blog/2017/02/20/interview-with-weaveworks/">Weaveworks</a>
+          </li>
+          <li>
+            <a href="http://prometheus.io/blog/2016/11/16/interview-with-canonical/">Canonical</a>
+          </li>
+          <li>
+            <a href="http://prometheus.io/blog/2016/09/14/interview-with-digitalocean/">DigitalOcean</a>
+          </li>
+        </ul>
+        <h5>OSS integrations</h5>
+        <ul>
+          <li>
+            <a href="http://prometheus.io/blog/2017/02/20/interview-with-weaveworks/">KOPS</a>
+          </li>
+          <li>
+            <a href="http://prometheus.io/blog/2016/11/16/interview-with-canonical/">CADvisor</a>
+          </li>
+          <li>
+            <a href="http://prometheus.io/blog/2016/09/14/interview-with-digitalocean/">K8s</a>
+          </li>
+        </ul>
+      </div>
+      <div id="slide4" class="step slide" data-x="2000" data-y="-1500">
+        <h2>Why Bother? (Incident Response)</h2>
+        <center>
+          <img src="/static/presentations/prometheus/PrometheusImages/Dickersons Hierarchy of Reliability.png">
+        </center>
+        <a href="https://coreos.com/blog/monitoring-kubernetes-with-prometheus.html">
+          "Monitoring is a must have for responding to incidents, detecting and debugging systemic problems, planning for the future, and generally understanding your infrastructure."
+        </a>
+      </div>
+      <div id="slide5" class="step slide" data-x="3000" data-y="-1500">
+        <h2>Why Bother? (Capacity Planning)</h2>
+        <br />
+        <br />
+        <a href="https://www.infoq.com/news/2015/06/too-big-to-fail">
+          "Modelling ahead of time is essential, and techniques such as load testing, capacity planning and regression analysis allow an SRE team to understand how the system should behave given specific conditions."
+        </a>
+        <a href="https://www.infoq.com/news/2015/06/too-big-to-fail">
+          "It’s not enough to watch load and activity on a particular machine when the work assigned to that machine may change with the requirements of the cluster and application as a whole. If your architecture is designed to allow for processes to fail, you can’t tell if a failure is critical by monitoring individual processes."
+        </a>
+      </div>
+      <div id="slide6" class="step slide" data-x="4000" data-y="-1500">
+        <h2>Advantages over existing</h2>
+        <ul>
+          <li>Scrape-based monitoring - lots of integrations!</li>
+          <li>Minimal Configuration</li>
+          <li>Exports internals instead of probing for liveness - 'white box' monitoring</li>
+          <li>Alerting graph</li>
+          <li>Control over batching / rate of alerts</li>
+          <li>Alert meta-data</li>
+        </ul>
+      </div>
+      <div id="slide7" class="step slide" data-x="5000" data-y="-1500">
+        <h2>Components</h2>
+        <img src="/static/presentations/prometheus/PrometheusImages/prometheus_pinned.png">
+        <img src="/static/presentations/prometheus/PrometheusImages/prometheus_header.png">
+      </div>
+      <div id="slide8" class="step slide" data-x="6000" data-y="-1500">
+        <h2>client_ruby</h2>
+        <a href="https://github.com/prometheus/client_ruby">
+          <img src="/static/presentations/prometheus/PrometheusImages/client_ruby.png">
+        </a>
+      </div>
+      <div id="slide9" class="step slide" data-x="7000" data-y="-1500">
+        <h2>Demo</h2>
+        <img src="/static/presentations/prometheus/PrometheusImages/BeautifulArtwork.png">
+      </div>
+      <div id="slide10" class="step slide" data-x="8000" data-y="-1500">
+        <h2>Alert configuration</h2>
+        <ul>
+          <li>DSL for specifying alerts - rules, labels, annotations, durations</li>
+          <li><code>Promtool</code> - static syntax checking</li>
+        </ul>
+      </div>
+      <div id="slide11" class="step slide" data-x="9000" data-y="-1500">
+        <h2>AlertManager</h2>
+        <ul>
+          <li>Prometheus is able to alert receivers but there are more facets to prod-ready notification systems</li>
+          <li>Summarization</li>
+          <li>Rate Limiting</li>
+          <li>Silencing</li>
+          <li>Alert dependencies</li>
+        </ul>
+      </div>
+      <div id="slide12" class="step slide" data-x="10000" data-y="-1500">
+        <h2>Recording Rules</h2>
+        <ul>
+          <li>Precompute computationally expensive expressions and save their results in a new time series</li>
+          <li>Querying the pre-computed result faster than ad hoc querying</li>
+        </ul>
+      </div>
+      <div id="slide13" class="step slide" data-x="11000" data-y="-1500">
+        <h2>Remote Write API</h2>
+        <ul>
+          <li>No plans for long-term storage of data in the time series</li>
+          <li>Remote write factilities proxy data on for storage/furhter processing</li>
+        </ul>
+      </div>
+      <div id="slide14" class="step slide" data-x="12000" data-y="-1500">
+        <h2>Extra Reading</h2>
+        <ul>
+          <li>
+            <a href="https://github.com/htmldrum/rails-prometheus">Rails-Prometheus</a>
+          </li>
+          <li>
+            <a href="https://github.com/htmldrum/mk_rp_gra_ne_demo">MiniKube demo</a>
+          </li>
+          <li>
+            <a href="https://github.com/wrouesnel/postgres_exporter">PG Exporter</a>
+          </li>
+          <li>
+            <a href="https://github.com/mattbostock/webdriver_exporter">Webdriver Exporter</a>
+          </li>
+          <li>
+            <a href="https://coreos.com/blog/prometheus-and-kubernetes-up-and-running.html">Prometheus and Kubernetes up and running</a>
+          </li>
+          <li>
+            <a href="https://coreos.com/blog/developing-prometheus-alerts-for-etcd.html">Developing Prometheus alerts for etcd</a>
+          </li>
+        </ul>
+      </div>
+      <div id="overview" class="step" data-x="4000" data-y="0" data-scale="10"></div>
+    </div>
+    <script src="/static/presentations/prometheus/js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>

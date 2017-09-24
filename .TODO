@@ -1,27 +1,15 @@
 # DONE
-
-x Bring in posts
-x Bring in post indices
-x Style
-x Bring in images
- x thinking about just dumping them in the posts folder
-x Bring over other content
-x Bring over presentations
-x Render presentations properly
-  x Impress.js exporter?
-x Render the posts
-  x Render the list element
-  x Render the post body
-  x Render the code segments nicely
-x Add images
+x Add image of me
+x Add presentations as build step
+x Host on AWS
+x Update resume
 
 # TODO
-- Add image of me
+- Finish Ruby tools post
+  -
 - Add social networking
-- Add presentations as build step
-- Host on AWS
-- Update resume
 - CloudFront cacheing
 - Testing?
 - Work on open source projects
   - Try some PR's on other people's projects
+-
